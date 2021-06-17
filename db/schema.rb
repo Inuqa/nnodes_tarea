@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_164629) do
+ActiveRecord::Schema.define(version: 2021_06_17_230336) do
 
   create_table "players", force: :cascade do |t|
     t.string "name", null: false
     t.integer "money", default: 10000
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "roulettes", force: :cascade do |t|
+    t.integer "rand_number"
+    t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
