@@ -1,5 +1,6 @@
 class Player < ApplicationRecord
-  has_and_belongs_to_many :roulettes
+  has_many :bets, dependent: :destroy
+  has_many :roulettes, through: :bets
   validates :name, presence: true
 
   validates :money, presence: true

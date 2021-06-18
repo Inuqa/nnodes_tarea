@@ -1,6 +1,8 @@
 class Roulette < ApplicationRecord
   before_create :spin
-  has_and_belongs_to_many :players
+  after_create :place_bet
+  has_many :bets, dependent: :destroy
+  has_many :players, through: :bets
 
   def spin
     random_number = rand(10_000)
