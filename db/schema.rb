@@ -10,20 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_17_230723) do
+ActiveRecord::Schema.define(version: 2021_06_18_033107) do
 
   create_table "players", force: :cascade do |t|
     t.string "name", null: false
     t.integer "money", default: 10000
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "players_roulettes", id: false, force: :cascade do |t|
-    t.integer "player_id"
-    t.integer "roulette_id"
-    t.index ["player_id"], name: "index_players_roulettes_on_player_id"
-    t.index ["roulette_id"], name: "index_players_roulettes_on_roulette_id"
   end
 
   create_table "roulettes", force: :cascade do |t|
