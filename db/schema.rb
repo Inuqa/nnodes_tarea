@@ -10,7 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_033107) do
+ActiveRecord::Schema.define(version: 2021_06_18_034139) do
+
+  create_table "bets", force: :cascade do |t|
+    t.integer "bet_quantity"
+    t.string "bet_color"
+    t.integer "roulette_id", null: false
+    t.integer "player_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["player_id"], name: "index_bets_on_player_id"
+    t.index ["roulette_id"], name: "index_bets_on_roulette_id"
+  end
 
   create_table "players", force: :cascade do |t|
     t.string "name", null: false
@@ -26,4 +37,6 @@ ActiveRecord::Schema.define(version: 2021_06_18_033107) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "bets", "players"
+  add_foreign_key "bets", "roulettes"
 end
