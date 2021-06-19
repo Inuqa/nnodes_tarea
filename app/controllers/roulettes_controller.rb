@@ -1,5 +1,5 @@
 class RoulettesController < ApplicationController
   def index
-    @roulettes = Roulette.all
+    @roulettes = Roulette.all.order(id: :desc)
   end
 end
