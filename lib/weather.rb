@@ -5,16 +5,24 @@ class Weather
   def initialize
     @options = {
       query: {
-        lat: -33.4489,
-        lon: -70.6693,
+        lat: ENV['WEATHER_LATITUDE'],
+        lon: ENV['WEATHER_LONGITUDE'],
         exclude: 'hourly,minutely,current,alerts',
         units: 'metric',
-        appid: '681390f9870ae63049cb589fb84cd9de'
+        appid: ENV['WEATHER_API_KEY']
       }
     }
   end
 
   def seven_days_weather
-    self.class.get('/data/2.5/onecall', @options)
+    self.class.get('/data/2.5/onecall', @options).with_indifferent_access[:daily]
+  end
+
+  def seven_days_max_temps
+    seven_days_weather.map { |d| d[:temp][:max] }
+  end
+
+  def seven_days_over_temp?(temp)
+    seven_days_max_temps.any? { |t| t > temp }
   end
 end
