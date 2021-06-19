@@ -1,0 +1,11 @@
+.roulette
+  .roulette_data
+    = render partial: "field", locals: {label: "Roulette id", value: roulette.id }
+    = render partial: "field", locals: {label: "Roulette color", value: roulette.color }
+    = render partial: "field", locals: {label: "Roulette date", value: roulette.created_at }
+  .bets_data
+    - roulette.bets.each_with_index do |bet, index|
+      .bet{class: ("alternate" unless index % 2 == 0)}
+        = render partial: "field", locals: {label: "player name", value: bet.player.name}
+        = render partial: "field", locals: {label: "bet color", value: bet.bet_color}
+        = render partial: "field", locals: {label: "bet amount", value: bet.bet_quantity}
