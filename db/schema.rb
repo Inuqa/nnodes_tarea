@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_034139) do
+ActiveRecord::Schema.define(version: 2021_06_19_004415) do
 
   create_table "bets", force: :cascade do |t|
     t.integer "bet_quantity"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2021_06_18_034139) do
   end
 
   create_table "roulettes", force: :cascade do |t|
-    t.integer "rand_number"
+    t.float "rand_number"
     t.string "color"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

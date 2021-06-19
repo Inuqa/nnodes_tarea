@@ -1,6 +1,7 @@
 class Bet < ApplicationRecord
-  after_create :check_win
   before_create :discount_money
+  after_create :check_win
+
   belongs_to :roulette
   belongs_to :player
 
@@ -14,7 +15,7 @@ class Bet < ApplicationRecord
   end
 
   def green(player)
-    player.update(money: bet_quantity * 15)
+    player.update(money: player.money + bet_quantity * 15)
   end
 
   def red_or_black(player)
