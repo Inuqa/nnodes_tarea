@@ -1,0 +1,14 @@
+%p#notice= notice
+%h1 Roulettes
+%table
+  %thead
+    %tr
+      %th Name
+      %th Money
+      %th{:colspan => "3"}
+  %tbody
+    - @roulettes.each do |roulette|
+      %tr
+        %td= roulette.color
+        %td= roulette.rand_number
+%br/
