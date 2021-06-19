@@ -1,3 +1,26 @@
 // Place all the styles related to the roulettes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+
+.roulette {
+  border: 1px solid;
+
+  .bets_data {
+    padding-left: 1.5em;
+  }
+
+  .bet {
+    padding: 0.5em;
+    background: #999999;
+  }
+
+  .alternate {
+    background: #eeeeee;
+  } 
+
+  .field {
+    .label {
+      font-weight: 700;
+    }
+  }
+}
