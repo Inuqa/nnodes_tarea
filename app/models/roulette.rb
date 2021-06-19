@@ -29,6 +29,8 @@ class Roulette < ApplicationRecord
   def place_bet
     players = Player.all
     players.each do |player|
+      next unless player.money.positive?
+
       bets.new(
         player: player,
         bet_quantity: bet_money(player),
