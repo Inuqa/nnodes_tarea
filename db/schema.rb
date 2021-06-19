@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2021_06_19_004415) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bets", force: :cascade do |t|
     t.integer "bet_quantity"
     t.string "bet_color"
-    t.integer "roulette_id", null: false
-    t.integer "player_id", null: false
+    t.bigint "roulette_id", null: false
+    t.bigint "player_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["player_id"], name: "index_bets_on_player_id"
