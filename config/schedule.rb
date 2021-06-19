@@ -2,7 +2,7 @@ env :PATH, ENV['PATH']
 set :output, 'log/cron_log.log'
 set :environment, 'development'
 
-every 1.minute do
+every 3.minutes do
   rake 'roulette:spin'
 end
 
