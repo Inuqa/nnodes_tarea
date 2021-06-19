@@ -1,24 +1,18 @@
-# README
+# Ruleta nnodes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ Para iniciar la base de datos.
+```
+docker-compose
+```
+Para crear y migrar la base de datos.
+```
+bundle exec rails db:create
+bundle exec rails db:migrate
+```
+Para iniciar las tareas de cron.
+```
+bundle exec whenever --update-crontab 
+```
+Para iniciar el server.
+```
+bundle exec rails server
