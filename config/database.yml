@@ -34,4 +34,4 @@ production:
   username: <%= ENV['DB_USER'] %>
   password: <%= ENV['DB_PASSWORD'] %>
   database: "tarea-nnodes-db"
-  host: "/cloudsql/tarea-nnodes:us-central1:tarea-nnodes"
+  host: "/cloudsql/nnodes-ta:us-west1:nnodes-ta-psql"
