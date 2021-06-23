@@ -27,4 +27,11 @@ test:
 
 production:
   <<: *default
-  database: nnodes_production
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  timeout: 5000
+  username: <%= ENV['DB_USER'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
+  database: "tarea-nnodes-db"
+  host: "/cloudsql/tarea-nnodes:us-central1:tarea-nnodes"
