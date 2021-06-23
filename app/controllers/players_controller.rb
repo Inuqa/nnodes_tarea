@@ -61,13 +61,11 @@ class PlayersController < ApplicationController
     Player.all.each do |player|
       player.update(money: player.money + (ENV['REFILL_AMOUNT'].to_i || 10_000))
     end
+
+    head :ok
   end
 
   private
-
-  def check_app_engine_cron
-    render status: :internal_server_error unless request.headers['X-Appengine-Cron']
-  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_player

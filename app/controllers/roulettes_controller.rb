@@ -1,4 +1,6 @@
 class RoulettesController < ApplicationController
+  include CheckCronHeader
+
   before_action :check_app_engine_cron, only: [:spin]
   def index
     @roulettes = Roulette.all.order(id: :desc)
@@ -6,12 +8,6 @@ class RoulettesController < ApplicationController
 
   def spin
     Roulette.create
-    render status: :ok
-  end
-
-  private
-
-  def check_app_engine_cron
-    render status: :internal_server_error unless request.headers['X-Appengine-Cron']
+    head :ok
   end
 end
