@@ -24,6 +24,9 @@ development:
 test:
   <<: *default
   database: nnodes_test
+  username: seba
+  password: 123
+  host: localhost
 
 production:
   <<: *default
