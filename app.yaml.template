@@ -1,0 +1,19 @@
+entrypoint: bundle exec rackup --port $PORT
+env: flex
+runtime: ruby
+
+env_variables:
+  SECRET_KEY_BASE: 
+  WEATHER_LATITUDE: "-33.4489"
+  WEATHER_LONGITUDE: "-70.6693"
+  WEATHER_API_KEY:
+  REFILL_AMOUNT: 10000
+  DB_USER:
+  DB_PASSWORD:
+
+beta_settings:
+  cloud_sql_instances:
+
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 7
