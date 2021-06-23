@@ -1,0 +1,7 @@
+cron: 
+  - description: "spin roulette"
+    url: /roulettes/spin
+    schedule: every 3 mins
+  - description: "refill money player"
+    url: /players/refill
+    schedule: every 24 hours
